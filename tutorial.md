@@ -152,6 +152,20 @@ use them to iterate over a list.
     (setq items (cdr items))))
 ```
 
+### Some built-in list functions
+
+Here is a sampling of the many built-in functions that operate on lists:
+
+```elisp
+(length '(a b c))  ; => 3
+(nth 1 '(a b c))  ; => b
+(member 20 '(10 20 30))  ; => (20 30)
+(reverse '(1 2 3))  ; => (3 2 1)
+(list '(a b) 1 2 '(10 20 30))  ; => ((a b) 1 2 (10 20 30))
+(append '(a b) '(10 20 30))  ; => (a b 10 20 30)
+(equal '(1 2 3) (cons 1 '(2 3)))  ; => t
+```
+
 
 ## Pairs
 
@@ -190,20 +204,6 @@ pair... etc... is actually a list!
 (cons 1 nil)  ; => (1)
 (cons 1 (cons 2 nil))  ; => (1 2)
 (cons 1 (cons 2 (cons 3 nil)))  ; => (1 2 3)
-```
-
-## Some built-in list functions
-
-Here is a sampling of the many built-in functions that operate on lists:
-
-```elisp
-(length '(a b c))  ; => 3
-(nth 1 '(a b c))  ; => b
-(member 20 '(10 20 30))  ; => (20 30)
-(reverse '(1 2 3))  ; => (3 2 1)
-(list '(a b) 1 2 '(10 20 30))  ; => ((a b) 1 2 (10 20 30))
-(append '(a b) 1 2 '(10 20 30))  ; => (a b 49 50 10 20 30)
-(equal '(1 2 3) (cons 1 '(2 3)))  ; => t
 ```
 
 
