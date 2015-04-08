@@ -40,7 +40,7 @@
 
 ;;; True and False
 
-;; There are a number of functions that perform comparisons. They typically
+;; There are a number of functions that perform comparisons.  They typically
 ;; return t if successful and nil if not:
 
 (< 1 2)  ; => t
@@ -83,8 +83,8 @@
 
 ;;; Lists
 
-;; The fundamental data structure in Lisp is the list. Here are some examples of
-;; lists:
+;; The fundamental data structure in Lisp is the list.  Here are some examples
+;; of lists:
 
 (1 2 3 4)
 (x y z)
@@ -150,11 +150,11 @@
         (* (cdr n1) (cdr n2))))
 
 (print-complex-number
- (make-complex-number 3 4))
+ (make-complex-number 3 4))  ; => "3/4"
 
 (add-complex-numbers
  (make-complex-number 1 2)
- (make-complex-number 3 4))
+ (make-complex-number 3 4))  ; => "10/8"
 
 ;; You can make pairs containing pairs.  A pair containing a pair containing a
 ;; pair... etc... is actually a list!
@@ -196,9 +196,7 @@
 (area 5)  ; => 78.53981633974483
 
 ;; defun is called a special form because it doesn't evaluate all of its
-;; arguments.  What would it mean to interpret the above defun as a plain
-;; function call?  Have we seen another "function" that in fact must be a
-;; special form?
+;; arguments.
 
 ;; The documentation for a function can be accessed with describe-function:
 
@@ -292,9 +290,8 @@
    (t ())))
 
 
-;; Common Lisp has a bunch of functions take functions as parameters.  There is
-;; a library of Common Lisp functions in this Lisp; let's import them using
-;; require.
+;; Common Lisp has a bunch of functions which take other functions as
+;; parameters.
 
 (require 'cl-lib)
 
@@ -315,25 +312,28 @@
 ;; If so, return the true (non-nil) value returned by PREDICATE.
 
 (cl-some 'numberp '(1 2 3))  ; => t
-(cl-every 'numberp '("a" "b" "c"))  ; => nil, none where numbers
+(cl-some 'numberp '("a" "b" "c"))  ; => nil, none where numbers
 
 
 ;;; filter
 
-;; In this Lisp, "filter" is called "remove-if-not".  But in most Lisps (and
-;; most programming languages, for that matter) it's called "filter".
+;; (cl-remove-if-not PREDICATE SEQ [KEYWORD VALUE]...)
+;; Remove all items not satisfying PREDICATE in SEQ.
 
 (setq servers (list "https://google.com" "http://google.com"))
 
 (defun is-safe (url)
   (string-match "^https" url))
 
-(cl-remove-if-not 'is-safe servers)
+(cl-remove-if-not 'is-safe servers)  ; => ("https://google.com")
 
 
 ;;; sort
 
+;; (cl-sort SEQ PREDICATE [KEYWORD VALUE]...)
+;; Sort the argument SEQ according to PREDICATE.
+
 (cl-sort (list "George" "Joe" "Aaron")
          (lambda (word1 word2)
            (< (elt (downcase word1) 0)
-              (elt (downcase word2) 0))))
+              (elt (downcase word2) 0))))  ; => ("Aaron" "George" "Joe")
