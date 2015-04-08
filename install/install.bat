@@ -1,5 +1,5 @@
 :: `install.bat' and `j_unzip.vbs' should each be in the home folder.
-:: The double-click on `install.bat' to install.
+:: Then double-click on `install.bat' to install.
 
 mkdir %HOMEPATH%\AppData\Roaming\.emacs.d\lisp
 
