@@ -209,8 +209,7 @@ pair... etc... is actually a list!
 
 ## Functions
 
-The special form defun is used to define functions.  The general form is
-this:
+The special form `defun` is used to define functions.  The general form is this:
 
 ```elisp
 (defun name arguments documentation expr1 expr2 ... exprN)
