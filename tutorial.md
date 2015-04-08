@@ -68,15 +68,10 @@ The `not` function inverts `t` or `nil`:
 `not` considers everything except `nil` to be `t`
 
 ```elisp
-(if nil "yes" "no")     ; => "no"
-(if () "yes" "no")      ; => "no"
-(if '() "yes" "no")     ; => "no"
-(if (list) "yes" "no")  ; => "no", because (list) eval to a empty list, same as ()
-
+(if nil "yes" "no") ; => "no"
 (if t "yes" "no")   ; => "yes"
 (if 0 "yes" "no")   ; => "yes"
 (if "" "yes" "no")  ; => "yes"
-(if [] "yes" "no")  ; => "yes". The [] is vector of 0 elements
 
 (and t nil) ; => nil
 (or t nil)  ; => t
