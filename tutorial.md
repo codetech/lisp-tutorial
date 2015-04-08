@@ -372,8 +372,8 @@ parameters.
 > If so, return the true (non-nil) value returned by PREDICATE.
 
 ```elisp
-(cl-some 'numberp '(1 2 3))  ; => t
-(cl-some 'numberp '("a" "b" "c"))  ; => nil, none where numbers
+(cl-some 'numberp '(1 2 "c"))  ; => t
+(cl-some 'numberp '("a" "b" "c"))  ; => nil, none were numbers
 ```
 
 ### filter
